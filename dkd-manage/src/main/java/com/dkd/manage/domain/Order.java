@@ -2,10 +2,12 @@ package com.dkd.manage.domain;
 
 import com.dkd.common.annotation.Excel;
 import com.dkd.common.core.domain.BaseEntity;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 /**
  * 订单管理对象 tb_order
@@ -17,7 +19,9 @@ import lombok.AllArgsConstructor;
 public class Order extends BaseEntity
 {   private static final long serialVersionUID = 1L;
     /** 主键 */
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
+
 
     /** 订单编号 */
     @Excel(name = "订单编号")
